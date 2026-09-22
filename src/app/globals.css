@@ -1,26 +1,353 @@
 @import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+@import "../../../backendgabay/packages/ui/src/tokens.css";
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --font-sans: "Segoe UI", Arial, Helvetica, sans-serif;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
 }
-
 body {
+  margin: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+}
+button,
+a,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+button {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: not-allowed;
+}
+::selection {
+  background: #c8e6d6;
+}
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.toast-item {
+  animation: toast-in 180ms ease-out;
+}
+.input {
+  display: block;
+  width: 100%;
+  height: 44px;
+  border: 1px solid #dfe7e2;
+  border-radius: 10px;
+  background: white;
+  padding: 0 13px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 400;
+  color: #253c38;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
+}
+.input:focus {
+  outline: none;
+  border-color: #438c75;
+  box-shadow: 0 0 0 3px #438c7515;
+}
+.input::placeholder {
+  color: #a1aca6;
+}
+.input[type="file"] {
+  height: auto;
+  padding: 10px;
+}
+textarea.input {
+  min-height: 112px;
+  padding: 12px 13px;
+}
+.panel {
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  background: #fff;
+}
+.eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #648577;
+}
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 39px;
+  background: #24715e;
+  color: white;
+  border-radius: 10px 10px 10px 3px;
+  transform: rotate(-4deg);
+}
+.brand-mark svg {
+  transform: rotate(4deg);
+}
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  border-radius: 9px;
+  padding: 10px 12px;
+  color: #7a8882;
+  font-size: 11px;
+  font-weight: 500;
+  text-align: left;
+  transition:
+    background 0.15s,
+    color 0.15s;
+}
+.nav-item:hover {
+  background: #f4f7f4;
+  color: #24715e;
+}
+.nav-item.active {
+  color: #24715e;
+  background: #eaf3ed;
+  font-weight: 650;
+}
+.welcome-banner {
+  position: relative;
+  overflow: hidden;
+  padding: 32px 36px;
+  min-height: 305px;
+  border: 1px solid #e2ebdc;
+  border-radius: 17px;
+  background: linear-gradient(110deg, #ecf2e5 2%, #edf3e9 55%, #e2eee1);
+}
+.banner-art {
+  position: absolute;
+  inset: 0 0 0 51%;
+}
+.art-orbit {
+  position: absolute;
+  top: -105px;
+  right: -30px;
+  height: 460px;
+  width: 460px;
+  border: 1px solid #ccddc9;
+  border-radius: 50%;
+}
+.art-orbit.second {
+  top: -65px;
+  right: 10px;
+  width: 380px;
+  height: 380px;
+}
+.floating-card {
+  position: absolute;
+  width: 220px;
+  background: #ffffffeb;
+  box-shadow: 0 14px 45px #4a674517;
+  border: 1px solid #f6fbf2;
+  border-radius: 13px;
+  padding: 20px;
+}
+.card-a {
+  top: 40px;
+  left: 12%;
+  transform: rotate(-8deg);
+}
+.card-b {
+  top: 115px;
+  left: 43%;
+  transform: rotate(8deg);
+}
+.floating-card strong,
+.floating-card span:not(.art-icon) {
+  display: block;
+  font-size: 11px;
+}
+.floating-card strong {
+  margin: 12px 0 5px;
+}
+.floating-card span:not(.art-icon) {
+  font-size: 9px;
+  color: #89998e;
+}
+.art-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+  color: #3b8164;
+  background: #e8f2e9;
+}
+.art-icon.peach {
+  background: #faf0e6;
+  color: #b08661;
+}
+.floating-card i {
+  display: block;
+  height: 5px;
+  width: 100%;
+  background: #edf1e9;
+  border-radius: 3px;
+  margin-top: 14px;
+}
+.floating-card i:last-child {
+  width: 70%;
+  margin-top: 6px;
+}
+.floating-card b {
+  display: block;
+  width: 13px;
+  background: #b1ceb1;
+  align-self: flex-end;
+  border-radius: 3px 3px 0 0;
+}
+.floating-card b:nth-child(2n) {
+  background: #d5e3c9;
+}
+.sparkle-dot {
+  position: absolute;
+  top: 32px;
+  right: 70px;
+  color: #608f63;
+}
+.tool-card {
+  display: block;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  background: white;
+  padding: 20px;
+  transition:
+    box-shadow 0.15s,
+    border-color 0.15s;
+}
+.tool-card:hover {
+  border-color: #becfc2;
+  box-shadow: 0 4px 18px #52695709;
+}
+.tool-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+  flex-shrink: 0;
+}
+.mint {
+  color: #438166;
+  background: #eaf3ed;
+}
+.peach {
+  color: #b47c56;
+  background: #fbf0e7;
+}
+.lavender {
+  color: #8673a1;
+  background: #f0edf7;
+}
+.blue {
+  color: #608da7;
+  background: #eaf2f6;
+}
+.yellow {
+  color: #b19748;
+  background: #f9f5e6;
+}
+.chat-promo {
+  background: #164b41;
+  color: white;
+  padding: 25px;
+  border-radius: 15px;
+}
+.table-scroll {
+  overflow-x: auto;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 12px;
+}
+th {
+  padding: 13px 18px;
+  background: #fbfcfb;
+  color: #8a9990;
+  font-weight: 600;
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid var(--border);
+}
+td {
+  padding: 16px 18px;
+  border-bottom: 1px solid #f0f3ef;
+}
+tr:last-child td {
+  border-bottom: 0;
+}
+.prose-content {
+  font-size: 14px;
+  line-height: 1.9;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.grid > * {
+  min-width: 0;
+}
+h1,
+h2,
+h3 {
+  overflow-wrap: anywhere;
+}
+@media (max-width: 767px) {
+  .welcome-banner {
+    padding: 26px;
+  }
+  table {
+    font-size: 11px;
+  }
+  td,
+  th {
+    padding: 12px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+@media print {
+  aside,
+  header,
+  footer,
+  nav,
+  button {
+    display: none !important;
+  }
+  main {
+    padding: 0 !important;
+  }
+  body {
+    background: white;
+  }
 }

@@ -1,0 +1,17 @@
+**/node_modules
+**/.next
+**/dist
+**/.git
+**/.env
+**/.env.*
+backendgabay/storage
+**/coverage
+**/*.tsbuildinfo
+**/.pnpm-store
+**/.install-cache
+**/.artifacts
+backendgabay/workspace
+**/.agents
+**/.claude
+**/.cursor
+**/.devin

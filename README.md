@@ -1,36 +1,16 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# GABAY Web
 
-## Getting Started
+Next.js App Router interface for the GABAY teaching workspace. Route files under `src/app` compose feature screens; interactive behavior lives in `src/features`. Shared UI primitives and the cookie-based API client live in `src/shared`.
 
-First, run the development server:
+Use the [setup guide](../backendgabay/docs/setup.md) and [architecture guide](../backendgabay/docs/architecture.md). Keep this repository beside `backendgabay/` inside `gabayai/`; shared TypeScript contracts, compiler settings, and theme tokens live in `../backendgabay/packages/`.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
+From this `frontendgabay` directory:
+
+```sh
+pnpm install --frozen-lockfile --ignore-scripts
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The default browser URL is `http://localhost:3000`. Same-origin `/api` requests are proxied to `http://127.0.0.1:4000`. Set `API_URL` before building if the backend is elsewhere; Docker builds use `http://api:4000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Validation: `pnpm lint` and `pnpm build`. API keys, database credentials, and authoritative business calculations belong to the NestJS backend.
