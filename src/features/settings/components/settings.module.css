@@ -1,0 +1,434 @@
+.page {
+  --settings-ink: #163e38;
+  --settings-green: #278269;
+  --settings-soft: #edf7f0;
+}
+
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(290px, 0.55fr);
+  align-items: center;
+  gap: 36px;
+  overflow: hidden;
+  min-height: 250px;
+  border: 1px solid #d7e8dc;
+  border-radius: 26px;
+  background:
+    radial-gradient(
+      circle at 86% 15%,
+      rgba(255, 255, 255, 0.88) 0 11%,
+      transparent 12%
+    ),
+    linear-gradient(125deg, #edf7ef 0%, #f7f8ec 100%);
+  padding: clamp(28px, 5vw, 48px);
+}
+
+.hero::after {
+  position: absolute;
+  right: -70px;
+  bottom: -130px;
+  width: 380px;
+  height: 260px;
+  border: 48px solid rgba(87, 151, 105, 0.08);
+  border-radius: 50%;
+  content: "";
+  transform: rotate(-16deg);
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 15px;
+  color: #658177;
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0.14em;
+}
+
+.hero h1 {
+  max-width: 680px;
+  margin: 0;
+  color: var(--settings-ink);
+  font-size: clamp(30px, 4.4vw, 48px);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 1.05;
+}
+
+.hero > div:first-child > p:last-child {
+  max-width: 690px;
+  margin: 20px 0 0;
+  color: #60746d;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.heroProfile {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.76);
+  padding: 18px;
+  box-shadow: 0 18px 45px rgba(44, 89, 68, 0.09);
+  backdrop-filter: blur(12px);
+}
+
+.heroProfile strong,
+.heroProfile span,
+.heroProfile small {
+  display: block;
+}
+
+.heroProfile strong {
+  color: #25483f;
+  font-size: 14px;
+}
+
+.heroProfile span {
+  margin-top: 3px;
+  color: #71827b;
+  font-size: 11px;
+}
+
+.heroProfile small {
+  margin-top: 6px;
+  color: #789087;
+  font-size: 9px;
+}
+
+.progressTrack {
+  width: 150px;
+  height: 5px;
+  overflow: hidden;
+  margin-top: 12px;
+  border-radius: 99px;
+  background: #e2ebe5;
+}
+
+.progressTrack span {
+  height: 100%;
+  margin: 0;
+  border-radius: inherit;
+  background: var(--settings-green);
+  transition: width 300ms ease;
+}
+
+.layout {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.28fr);
+  grid-template-areas:
+    "photo profile"
+    "branding branding";
+  align-items: start;
+  gap: 22px;
+  margin-top: 24px;
+}
+
+.card {
+  border: 1px solid #e0e8e3;
+  border-radius: 22px;
+  background: #fff;
+  padding: clamp(22px, 3vw, 30px);
+  box-shadow: 0 12px 34px rgba(34, 65, 55, 0.045);
+}
+
+.sectionHeading {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  margin-bottom: 24px;
+}
+
+.sectionIcon {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 12px;
+  background: var(--settings-soft);
+  color: var(--settings-green);
+}
+
+.sectionHeading h2 {
+  margin: 1px 0 0;
+  color: #24423c;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.sectionHeading p {
+  margin: 5px 0 0;
+  color: #7a8983;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.photoCard {
+  grid-area: photo;
+  position: relative;
+  z-index: 0;
+  align-self: start;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.profileCard {
+  grid-area: profile;
+  position: relative;
+  z-index: 0;
+  min-width: 0;
+}
+
+.photoWorkspace {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 18px;
+  background: linear-gradient(145deg, #f4f9f5, #faf9f2);
+  padding: 27px 20px 22px;
+}
+
+.largeAvatar {
+  box-shadow: 0 14px 28px rgba(46, 91, 70, 0.14);
+}
+
+.photoActions {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 9px;
+  margin-top: 22px;
+}
+
+.photoActions > button {
+  width: 100%;
+}
+
+.removeButton {
+  color: #ad4f4f;
+}
+
+.photoHint,
+.brandingNote {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 17px;
+  border-radius: 13px;
+  background: #f7f9f7;
+  padding: 13px;
+  color: #718078;
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.photoHint svg,
+.brandingNote svg {
+  flex: 0 0 auto;
+  margin-top: 1px;
+  color: #5b8c77;
+}
+
+.accountStrip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 22px;
+  border: 1px solid #e8ece9;
+  border-radius: 14px;
+  background: #fafbf9;
+  padding: 13px 15px;
+}
+
+.accountMail {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 11px;
+  color: #7b8c85;
+}
+
+.accountMail > span,
+.accountMail small,
+.accountMail strong {
+  display: block;
+  min-width: 0;
+}
+
+.accountMail small {
+  color: #87968f;
+  font-size: 9px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.accountMail strong {
+  overflow: hidden;
+  margin-top: 2px;
+  color: #435a52;
+  font-size: 11px;
+  text-overflow: ellipsis;
+}
+
+.verifiedBadge,
+.pendingBadge {
+  flex: 0 0 auto;
+  border-radius: 99px;
+  padding: 6px 9px;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.verifiedBadge {
+  background: #e8f6ed;
+  color: #28775e;
+}
+
+.pendingBadge {
+  background: #fff5df;
+  color: #9a6b16;
+}
+
+.fieldsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 19px 16px;
+}
+
+.fullField {
+  grid-column: 1 / -1;
+}
+
+.formFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 26px;
+  padding-top: 20px;
+  border-top: 1px solid #edf0ed;
+  color: #89968f;
+  font-size: 10px;
+}
+
+.brandingCard {
+  grid-area: branding;
+  position: relative;
+  z-index: 0;
+  min-width: 0;
+}
+
+.brandingNote {
+  margin: -7px 0 22px;
+  background: #f0f7f2;
+}
+
+.brandingSkeleton {
+  display: grid;
+  gap: 14px;
+}
+
+.locationHint {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+@media (max-width: 1040px) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr) 280px;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "photo"
+      "profile"
+      "branding";
+  }
+
+  .photoWorkspace {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .photoActions {
+    margin-top: 0;
+  }
+
+  .brandingCard {
+    grid-area: auto;
+  }
+}
+
+@media (max-width: 720px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 28px 24px;
+  }
+
+  .heroProfile {
+    width: 100%;
+  }
+
+  .progressTrack {
+    width: min(180px, 100%);
+  }
+
+  .fieldsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .fullField {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero {
+    border-radius: 20px;
+  }
+
+  .heroProfile,
+  .photoWorkspace {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .card {
+    border-radius: 18px;
+    padding: 20px;
+  }
+
+  .accountStrip,
+  .formFooter {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .formFooter button {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .progressTrack span {
+    transition: none;
+  }
+}

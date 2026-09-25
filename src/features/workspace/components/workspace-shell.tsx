@@ -31,6 +31,7 @@ import {
 import { AuthGate, useAuth } from "@/features/auth/hooks/auth-provider";
 import { Button } from "@/shared/components/ui/button";
 import { cn } from "@/shared/lib/utils";
+import { UserAvatar } from "@/shared/components/ui/user-avatar";
 const teacherNav = [
   {
     section: "WORKSPACE",
@@ -263,13 +264,11 @@ export function WorkspaceShell({ children }: { children: React.ReactNode }) {
               </span>
               <span className="h-6 border-l border-border" />
               <Link href="/settings" className="flex items-center gap-3">
-                <span className="grid size-9 place-items-center rounded-full bg-[#e9e2d8] text-xs font-semibold text-[#715c40]">
-                  {user?.name
-                    .split(" ")
-                    .slice(0, 2)
-                    .map((n) => n[0])
-                    .join("")}
-                </span>
+                <UserAvatar
+                  name={user?.name ?? "GABAY educator"}
+                  avatarUrl={user?.profile?.avatarUrl}
+                  size="sm"
+                />
                 <span className="hidden sm:block">
                   <span className="block text-xs font-semibold">
                     {user?.name}

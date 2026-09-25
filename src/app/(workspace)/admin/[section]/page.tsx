@@ -6,6 +6,7 @@ import { KnowledgePage } from "@/features/admin/components/knowledge-page";
 import { CurriculumPage } from "@/features/curriculum/components/curriculum-page";
 import { TemplatesPage } from "@/features/templates/components/templates-page";
 import { PaymentSettingsPage } from "@/features/billing/components/payment-settings-page";
+import { AdminUsersPage } from "@/features/admin/components/admin-users-page";
 export default async function Page({
   params,
 }: {
@@ -19,21 +20,16 @@ export default async function Page({
   if (section === "curriculum") return <CurriculumPage admin />;
   if (section === "budget-of-work") return <CurriculumPage admin bow />;
   if (section === "templates") return <TemplatesPage admin />;
+  if (section === "users") return <AdminUsersPage />;
   if (
-    [
-      "users",
-      "payments",
-      "subscriptions",
-      "usage",
-      "documents",
-      "audit",
-    ].includes(section)
+    ["payments", "subscriptions", "usage", "documents", "audit"].includes(
+      section,
+    )
   )
     return (
       <AdminRecords
         kind={
           section as
-            | "users"
             | "payments"
             | "subscriptions"
             | "usage"
